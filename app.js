@@ -13,22 +13,12 @@ var config = {
   "DATABASE" : "test"
 };
 
-
-var dbPath = "mongodb://" +
-             config.USER + ":" +
-             config.PASS + "@" +
-             config.HOST + ":" +
-             config.PORT + "/" +
-             config.DATABASE;
-
-console.log('mongodb://localhost:27017/test');
-
 var standardGreeting = 'Hello World!';
 
 var greetingSchema = mongoose.Schema({ sentence: String });
 var Greeting= mongoose.model('Greeting', greetingSchema);
 
-db = mongoose.connect(dbPath);
+db = mongoose.connect('mongodb://localhost:27017/test');
 
 mongoose.connection.once('open', function() {
   var greeting;
