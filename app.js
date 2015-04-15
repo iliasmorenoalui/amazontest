@@ -21,7 +21,7 @@ var dbPath = "mongodb://" +
              config.PORT + "/" +
              config.DATABASE;
 
-console.log(dbPath);
+console.log('mongodb://localhost:27017/test');
 
 var standardGreeting = 'Hello World!';
 
@@ -37,6 +37,12 @@ mongoose.connection.once('open', function() {
       greeting = new Greeting({ sentence: standardGreeting });
       greeting.save();
     }
+  });
+});
+
+app.get('/', function(req, res) {
+  Greeting.findOne(function (err, greeting) {
+    res.send(greeting.sentence);
   });
 });
 
