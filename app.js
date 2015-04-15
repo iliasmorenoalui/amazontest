@@ -21,6 +21,8 @@ var dbPath = "mongodb://" +
              config.PORT + "/" +
              config.DATABASE;
 
+console.log(dbPath);
+
 var standardGreeting = 'Hello World!';
 
 var greetingSchema = mongoose.Schema({ sentence: String });
