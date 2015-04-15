@@ -28,7 +28,7 @@ var Greeting= mongoose.model('Greeting', greetingSchema);
 
 db = mongoose.connect(dbPath);
 
-mongoose.connection.once('open' function() {
+mongoose.connection.once('open', function() {
   var greeting;
   Greeting.find( function(err, greetings){
     if( !greetings ){
